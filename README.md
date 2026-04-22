@@ -1,10 +1,10 @@
-# 🧠 Self-Pruning Neural Network
+#  Self-Pruning Neural Network
 
 > **Tredence Case Study** — A PyTorch implementation of a self-pruning MLP that learns to remove its own redundant connections during training using differentiable gate parameters and L1 sparsity regularization.
 
 ---
 
-## 📌 Overview
+##  Overview
 
 This project demonstrates **structured weight pruning** as a learnable process. Instead of manually removing weights after training (post-hoc pruning), this network embeds a **soft gating mechanism** directly into each linear layer. During training, an L1 penalty on the gate values drives unnecessary connections to zero — the network literally *prunes itself*.
 
@@ -20,7 +20,7 @@ output = Linear(input, weight × σ(gate_scores)) + bias
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 | Component | Details |
 |---|---|
@@ -43,7 +43,7 @@ Weights with gate values near 0 are effectively pruned; weights with gate values
 
 ---
 
-## 🔬 How Pruning Works
+##  How Pruning Works
 
 The training loss combines two objectives:
 
@@ -61,7 +61,7 @@ L_total = L_cross_entropy + λ × L_sparsity
 
 ---
 
-## 📊 Experimental Results
+##  Experimental Results
 
 Three lambda values were tested over 15 epochs each:
 
@@ -81,7 +81,7 @@ The log-scale histogram shows a **massive spike near 0**, confirming that the L1
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 Tredence/
@@ -97,7 +97,7 @@ Tredence/
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -136,7 +136,7 @@ python test_runner.py
 
 ---
 
-## 🧩 Technical Details
+##  Technical Details
 
 ### Weight Initialization
 - **Weights**: Kaiming Uniform (optimized for ReLU activations)
@@ -152,7 +152,7 @@ A connection is considered **pruned** when its gate value falls below **0.01** (
 
 ---
 
-## 📖 References
+##  References
 
 - [Learning Both Weights and Connections for Efficient Neural Networks](https://arxiv.org/abs/1506.02626) — Han et al., 2015
 - [The Lottery Ticket Hypothesis](https://arxiv.org/abs/1803.03635) — Frankle & Carlin, 2018
@@ -160,12 +160,9 @@ A connection is considered **pruned** when its gate value falls below **0.01** (
 
 ---
 
-## 📝 License
+##  License
 
 This project is part of a case study submission for Tredence.
 
 ---
 
-<p align="center">
-  Built with ❤️ using PyTorch
-</p>
